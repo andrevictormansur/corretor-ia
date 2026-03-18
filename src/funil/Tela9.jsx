@@ -75,84 +75,103 @@ export default function Tela9({ resultado, curso, onContinue }) {
           </div>
         </div>
 
-        {/* What we found */}
-        <div className="card p-4">
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">
-            O que encontramos
-          </h3>
-          {ponto_forte && (
-            <div className="mb-2 flex items-start gap-2.5 rounded-xl bg-green-50 px-3 py-3 ring-1 ring-green-100">
-              <span className="mt-px text-base leading-none">✅</span>
-              <p className="text-sm font-semibold text-green-800">{ponto_forte}</p>
+        {/* 1 ponto fraco visível */}
+        {pontos_fracos[0] && (
+          <div className="card p-4">
+            <h3 className="mb-2 text-xs font-bold uppercase tracking-wider text-gray-400">
+              Principal problema identificado
+            </h3>
+            <div className="flex items-start gap-2.5 rounded-xl bg-red-50 px-3 py-3 ring-1 ring-red-100">
+              <span className="mt-px text-base leading-none">❌</span>
+              <p className="text-sm font-semibold text-red-800">{pontos_fracos[0]}</p>
             </div>
-          )}
-          <div className="space-y-2">
-            {pontos_fracos.slice(0, 3).map((p, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-2.5 rounded-xl bg-red-50 px-3 py-3 ring-1 ring-red-100"
-              >
-                <span className="mt-px text-base leading-none">❌</span>
-                <p className="text-sm font-semibold text-red-800">{p}</p>
-              </div>
-            ))}
           </div>
-        </div>
+        )}
 
-        {/* Blurred / locked section */}
-        <div className="relative overflow-hidden rounded-2xl ring-1 ring-gray-100">
+        {/* Blurred / locked section — tudo bloqueado */}
+        <div className="relative overflow-hidden rounded-2xl ring-2 ring-brand-200">
+          {/* Conteúdo borrado */}
           <div
             aria-hidden
             className="pointer-events-none select-none"
-            style={{ filter: 'blur(4px)', opacity: 0.55 }}
+            style={{ filter: 'blur(6px)', opacity: 0.4 }}
           >
-            <div className="bg-white p-4">
-              <p className="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">
-                Análise por competência
-              </p>
-              <div className="space-y-2">
-                {['C1 — Norma culta', 'C2 — Tema', 'C3 — Argumentação', 'C4 — Coesão', 'C5 — Proposta'].map((c) => (
-                  <div key={c} className="flex items-center justify-between rounded-xl bg-gray-50 px-3 py-2.5">
-                    <span className="text-sm font-medium text-gray-700">{c}</span>
-                    <div className="flex items-center gap-2">
-                      <div className="h-2 w-20 rounded-full bg-gray-200" />
-                      <span className="text-sm font-bold text-gray-400">160/200</span>
+            <div className="bg-white p-4 space-y-3">
+              {/* Pontos fracos restantes */}
+              <div>
+                <p className="mb-2 text-xs font-bold uppercase tracking-wider text-gray-400">Outros problemas</p>
+                <div className="space-y-2">
+                  {(pontos_fracos[1]
+                    ? pontos_fracos.slice(1, 3)
+                    : ['Coesão textual insuficiente entre parágrafos', 'Proposta de intervenção incompleta']
+                  ).map((p, i) => (
+                    <div key={i} className="flex items-start gap-2.5 rounded-xl bg-red-50 px-3 py-3">
+                      <span className="text-base">❌</span>
+                      <p className="text-sm font-semibold text-red-800">{p}</p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-              <div className="mt-3 h-14 rounded-xl bg-gray-100" />
+              {/* Ponto forte */}
+              <div className="flex items-start gap-2.5 rounded-xl bg-green-50 px-3 py-3">
+                <span className="text-base">✅</span>
+                <p className="text-sm font-semibold text-green-800">{ponto_forte || 'Estrutura dissertativa presente'}</p>
+              </div>
+              {/* Análise por competência */}
+              <div>
+                <p className="mb-2 text-xs font-bold uppercase tracking-wider text-gray-400">Análise por competência</p>
+                <div className="space-y-2">
+                  {['C1 — Norma culta', 'C2 — Tema', 'C3 — Argumentação', 'C4 — Coesão', 'C5 — Proposta'].map((c) => (
+                    <div key={c} className="flex items-center justify-between rounded-xl bg-gray-50 px-3 py-2.5">
+                      <span className="text-sm font-medium text-gray-700">{c}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="h-2 w-20 rounded-full bg-gray-200" />
+                        <span className="text-sm font-bold text-gray-400">??/200</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="h-10 rounded-xl bg-gray-100" />
             </div>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/75 backdrop-blur-[1px]">
-            <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-100">
-              <span className="text-xl">🔒</span>
+
+          {/* Lock overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-[2px]">
+            <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-600 shadow-lg shadow-brand-600/30">
+              <span className="text-2xl">🔒</span>
             </div>
-            <p className="text-sm font-extrabold text-gray-800">Análise completa bloqueada</p>
-            <p className="mt-0.5 text-xs text-gray-500">Notas por competência + feedback detalhado</p>
+            <p className="text-base font-extrabold text-gray-900">Diagnóstico completo bloqueado</p>
+            <p className="mt-1 text-xs font-medium text-gray-500 text-center px-6">
+              Outros problemas • Ponto forte • Nota por competência • Plano de correção
+            </p>
           </div>
         </div>
 
-        {/* Personalized question */}
-        <div className="card p-4 text-center space-y-3">
-          <p className="text-base font-bold text-gray-900">
-            Quer chegar a <span className="text-brand-600">{meta}+</span> para garantir sua vaga em{' '}
-            <span className="text-brand-600">{curso}</span>?
-          </p>
-          <div className="flex gap-3">
-            <button
-              onClick={onContinue}
-              className="flex-1 rounded-xl bg-brand-600 py-3 text-sm font-bold text-white transition hover:bg-brand-700 active:scale-95"
-            >
-              Sim, quero! 🚀
-            </button>
-            <button
-              onClick={onContinue}
-              className="flex-1 rounded-xl border-2 border-gray-200 py-3 text-sm font-bold text-gray-600 transition hover:border-gray-300 active:scale-95"
-            >
-              Talvez depois
-            </button>
+        {/* CTA urgente */}
+        <div className="card p-5 text-center space-y-4 ring-2 ring-brand-300">
+          <div>
+            <p className="text-lg font-extrabold text-gray-900 leading-snug">
+              Quer saber o que falta para chegar a{' '}
+              <span className="text-brand-600">{meta}+</span> e garantir sua vaga em{' '}
+              <span className="text-brand-600">{curso}</span>?
+            </p>
+            <p className="mt-1.5 text-sm text-gray-500">
+              Veja o diagnóstico completo e um plano personalizado para você.
+            </p>
           </div>
+          <button
+            onClick={onContinue}
+            className="w-full rounded-xl bg-brand-600 py-4 text-base font-extrabold text-white shadow-md shadow-brand-600/30 transition hover:bg-brand-700 active:scale-95"
+          >
+            Quero ver meu diagnóstico completo →
+          </button>
+          <button
+            onClick={onContinue}
+            className="w-full text-xs text-gray-400 underline underline-offset-2"
+          >
+            Não me importo com minha nota
+          </button>
         </div>
       </div>
     </div>
