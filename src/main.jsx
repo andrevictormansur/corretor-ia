@@ -8,9 +8,9 @@ import './index.css'
 const path = window.location.pathname.replace(/\/$/, '') || '/'
 
 const Root = () => {
-  if (path === '/funil') return <FunilApp />
+  if (path === '/corretor') return <App />
   if (path === '/spotmaster') return <SpotMasterApp />
-  return <App />
+  return <FunilApp />
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
