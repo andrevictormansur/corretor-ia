@@ -114,7 +114,7 @@ export default function NovaRedacaoScreen({ user }) {
           <div className="flex items-baseline justify-between mb-1.5">
             <label className="text-sm font-semibold text-gray-700">Sua redação</label>
             <span className={`text-xs font-medium ${redacao.length > 0 && redacao.trim().length < 100 ? 'text-red-500' : 'text-gray-400'}`}>
-              {redacao.length}/3000
+              {redacao.trim() ? redacao.trim().split(/\s+/).length : 0} palavras · {redacao.length}/3000
             </span>
           </div>
           <textarea
