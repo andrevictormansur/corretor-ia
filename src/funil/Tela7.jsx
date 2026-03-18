@@ -45,7 +45,7 @@ export default function Tela7({ onSubmit, loading, error }) {
       {/* Logo */}
       <div className="mb-5 text-center">
         <span className="text-lg font-extrabold text-brand-600">
-          Corretor<span className="text-gray-900">IA</span>
+          Approva<span className="text-gray-900">.AI</span>
         </span>
       </div>
 

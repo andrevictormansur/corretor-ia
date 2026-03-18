@@ -26,7 +26,7 @@ export default function Tela11({ resultado, curso }) {
       {/* Logo */}
       <div className="mb-5 text-center">
         <span className="text-lg font-extrabold text-brand-600">
-          Corretor<span className="text-gray-900">IA</span>
+          Approva<span className="text-gray-900">.AI</span>
         </span>
       </div>
 
@@ -149,7 +149,7 @@ export default function Tela11({ resultado, curso }) {
             {'★★★★★'}
           </div>
           <p className="text-xs text-gray-500 font-medium">
-            Mais de 10.000 candidatos já usam o CorretorIA
+            Mais de 10.000 candidatos já usam o Approva.AI
           </p>
         </div>
       </div>

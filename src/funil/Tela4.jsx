@@ -12,7 +12,7 @@ export default function Tela4({ curso, aprovados, onContinue }) {
       {/* Logo */}
       <div className="mb-6 text-center">
         <span className="text-lg font-extrabold text-brand-600">
-          Corretor<span className="text-gray-900">IA</span>
+          Approva<span className="text-gray-900">.AI</span>
         </span>
       </div>
 
@@ -23,7 +23,7 @@ export default function Tela4({ curso, aprovados, onContinue }) {
           </p>
           <h1 className="text-2xl font-extrabold text-gray-900 leading-tight">
             Outros candidatos a<br />
-            <span className="text-brand-600">{curso}</span> já usaram o CorretorIA
+            <span className="text-brand-600">{curso}</span> já usaram o Approva.AI
           </h1>
         </div>
 
@@ -43,7 +43,7 @@ export default function Tela4({ curso, aprovados, onContinue }) {
         {/* Testimonials */}
         <div className="space-y-3">
           {[
-            { name: 'Ana C.', curso: 'Medicina — USP', text: 'Saí de 680 para 920 em 3 meses de treino com o CorretorIA.', stars: 5 },
+            { name: 'Ana C.', curso: 'Medicina — USP', text: 'Saí de 680 para 920 em 3 meses de treino com o Approva.AI.', stars: 5 },
             { name: 'Lucas M.', curso: 'Direito — PUC', text: 'O feedback por competência me mostrou exatamente onde melhorar.', stars: 5 },
           ].map((t) => (
             <div key={t.name} className="card p-4 space-y-1.5">

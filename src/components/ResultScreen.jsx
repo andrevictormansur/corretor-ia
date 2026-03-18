@@ -250,7 +250,7 @@ export default function ResultScreen({ resultado, onReset }) {
       </div>
 
       <p className="mt-4 text-center text-xs text-gray-400">
-        CorretorIA é uma ferramenta de apoio. Resultados podem variar em relação à banca oficial.
+        Approva.AI é uma ferramenta de apoio. Resultados podem variar em relação à banca oficial.
       </p>
     </div>
   )

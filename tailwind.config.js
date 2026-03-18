@@ -14,6 +14,7 @@ export default {
           800: '#5b21b6',
           900: '#4c1d95',
         },
+        success: '#10B981',
       },
       animation: {
         'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',

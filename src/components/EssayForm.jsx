@@ -65,7 +65,7 @@ export default function EssayForm({ onSubmit, loading }) {
       {/* Header */}
       <div className="mb-5 text-center">
         <p className="mb-2 text-sm font-extrabold uppercase tracking-widest text-brand-600">
-          CorretorIA
+          Approva.AI
         </p>
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900">
           Descubra sua nota no ENEM agora
