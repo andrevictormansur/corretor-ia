@@ -5,7 +5,7 @@ import FunilApp from './funil/FunilApp.jsx'
 import SpotMasterApp from './spotmaster/SpotMasterApp.jsx'
 import './index.css'
 
-const path = window.location.pathname
+const path = window.location.pathname.replace(/\/$/, '') || '/'
 
 const Root = () => {
   if (path === '/funil') return <FunilApp />

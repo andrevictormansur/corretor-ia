@@ -3,6 +3,17 @@ import { useEffect, useState } from 'react'
 const MIN_CHARS = 100
 const MAX_CHARS = 3000
 
+const REDACAO_EXEMPLO = {
+  tema: '2024',
+  texto: `A invisibilidade do trabalho de cuidado realizado pela mulher no Brasil representa uma das maiores injustiças estruturais da sociedade contemporânea. Embora essencial para a reprodução da vida social e econômica, esse trabalho permanece não remunerado, não reconhecido e sistematicamente ignorado pelas políticas públicas. Para compreender esse fenômeno, é necessário analisar suas raízes históricas e seus impactos concretos na vida das mulheres brasileiras.
+
+Historicamente, a divisão sexual do trabalho consolidou a ideia de que cuidar de filhos, idosos e doentes seria uma responsabilidade "natural" feminina, e não uma forma legítima de trabalho. De acordo com dados do IBGE, mulheres dedicam em média 21,4 horas semanais a afazeres domésticos e cuidados, enquanto homens dedicam apenas 11 horas. Essa discrepância revela como o sistema econômico se sustenta sobre um trabalho invisível e gratuito realizado majoritariamente por mulheres, especialmente as mais pobres e negras, que acumulam tripla jornada sem qualquer reconhecimento formal.
+
+Além disso, essa invisibilidade tem consequências diretas sobre a autonomia e a inserção profissional feminina. A filósofa Nancy Fraser, em sua teoria da paridade participativa, argumenta que a justiça social exige tanto redistribuição econômica quanto reconhecimento cultural. O cuidado invisível viola ambas as dimensões: priva as mulheres de renda e as mantém excluídas do debate público como sujeitos políticos plenos. No Brasil, esse problema é agravado pela ausência de infraestrutura pública de cuidado — creches, centros-dia para idosos e políticas de licença parental igualitária.
+
+Portanto, o Estado brasileiro deve implementar uma Política Nacional de Cuidados, por meio do Ministério das Mulheres em parceria com municípios, que amplie a oferta de creches públicas em tempo integral e institua a licença parental compartilhada obrigatória, de forma a redistribuir o trabalho de cuidado entre homens e mulheres. Essa medida, além de promover igualdade de gênero, geraria impacto econômico positivo, uma vez que a inserção feminina no mercado formal aumenta o PIB e reduz a pobreza intergeracional, tornando o Brasil uma sociedade mais justa e produtiva.`,
+}
+
 // ENEM 2026 — redação: 8 de novembro de 2026
 const ENEM_DATE = new Date('2026-11-08')
 
@@ -130,6 +141,21 @@ export default function EssayForm({ onSubmit, loading }) {
             <p className="mt-1 text-xs text-red-500">
               Redação muito curta. Adicione mais {MIN_CHARS - redacao.trim().length} caracteres.
             </p>
+          )}
+
+          {/* Botão para quem não tem redação pronta */}
+          {redacao.trim().length === 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedTema(REDACAO_EXEMPLO.tema)
+                setRedacao(REDACAO_EXEMPLO.texto)
+              }}
+              disabled={loading}
+              className="mt-3 w-full rounded-xl border-2 border-dashed border-brand-300 bg-brand-50 py-3 text-sm font-semibold text-brand-600 transition hover:border-brand-400 hover:bg-brand-100 disabled:opacity-50"
+            >
+              Não tenho uma redação pronta — usar exemplo
+            </button>
           )}
         </div>
 

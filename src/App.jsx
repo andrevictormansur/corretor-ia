@@ -17,7 +17,10 @@ export default function App() {
       setResultado(data)
       setScreen('result')
     } catch (err) {
-      setErrorMsg(err.message || 'Ocorreu um erro inesperado.')
+      const msg = err.status === 401 || err.message?.includes('401')
+        ? 'Chave da API inválida ou expirada. Atualize o arquivo .env com uma nova chave e reinicie o servidor.'
+        : (err.message || 'Ocorreu um erro inesperado.')
+      setErrorMsg(msg)
       setScreen('error')
     }
   }

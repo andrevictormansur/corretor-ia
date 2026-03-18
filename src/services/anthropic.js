@@ -159,7 +159,7 @@ export async function corrigirRedacao(tema, redacao) {
 
   if (!apiKey || apiKey === 'sua_chave_aqui') {
     throw new Error(
-      'Chave da API Anthropic não configurada. Crie um arquivo .env com VITE_ANTHROPIC_API_KEY=sua_chave.',
+      'Chave da API não configurada. Adicione VITE_ANTHROPIC_API_KEY no arquivo .env e reinicie o servidor.',
     )
   }
 
