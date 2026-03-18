@@ -64,9 +64,7 @@ export default function EssayForm({ onSubmit, loading }) {
     <div className="mx-auto w-full max-w-2xl px-4 py-8">
       {/* Header */}
       <div className="mb-5 text-center">
-        <p className="mb-2 text-sm font-extrabold uppercase tracking-widest text-brand-600">
-          Approva.AI
-        </p>
+        <img src="/logo-light.svg" alt="Approva.AI" className="h-8 mx-auto mb-3" />
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900">
           Descubra sua nota no ENEM agora
         </h1>

@@ -24,10 +24,8 @@ export default function Tela11({ resultado, curso }) {
       </div>
 
       {/* Logo */}
-      <div className="mb-5 text-center">
-        <span className="text-lg font-extrabold text-brand-600">
-          Approva<span className="text-gray-900">.AI</span>
-        </span>
+      <div className="mb-6 text-center">
+        <img src="/logo-light.svg" alt="Approva.AI" className="h-7 mx-auto" />
       </div>
 
       <div className="funil-enter space-y-5">

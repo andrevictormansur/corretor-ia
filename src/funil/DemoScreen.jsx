@@ -73,9 +73,7 @@ export default function DemoScreen({ onSubmit, loading, error }) {
     <div className="funil-screen flex flex-col px-5 pt-8 pb-10">
       {/* Logo */}
       <div className="mb-6 text-center">
-        <span className="text-lg font-extrabold text-brand-600">
-          Approva<span className="text-gray-900">.AI</span>
-        </span>
+        <img src="/logo-light.svg" alt="Approva.AI" className="h-7 mx-auto" />
       </div>
 
       <div className="funil-enter">

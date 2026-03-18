@@ -17,9 +17,7 @@ export default function PitchScreen({ resultado }) {
     <div className="funil-screen px-5 pt-8 pb-14">
       {/* Logo */}
       <div className="mb-6 text-center">
-        <span className="text-lg font-extrabold text-brand-600">
-          Approva<span className="text-gray-900">.AI</span>
-        </span>
+        <img src="/logo-light.svg" alt="Approva.AI" className="h-7 mx-auto" />
       </div>
 
       <div className="funil-enter space-y-5">

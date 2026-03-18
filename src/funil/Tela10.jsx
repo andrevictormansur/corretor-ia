@@ -25,6 +25,7 @@ export default function Tela10({ onContinue }) {
       </div>
 
       <div className="funil-enter flex flex-col items-center text-center space-y-7 w-full">
+        <img src="/logo-dark.svg" alt="Approva.AI" className="h-7" />
         <div className="space-y-2">
           <div className="inline-block rounded-full bg-brand-600/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-400">
             ⚡ Reta Final ENEM 2026
